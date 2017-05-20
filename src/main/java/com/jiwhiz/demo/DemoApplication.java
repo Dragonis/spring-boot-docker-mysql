@@ -21,7 +21,7 @@ public class DemoApplication {
     @RequestMapping("/")
     public String home() {
         Person p = this.repository.findAll().iterator().next();
-        return "Hello " + p.getName() + "!";
+        return "Hello " + p.getName() + "! <br> Made by WojtekS.";
     }
 
     public static void main(String[] args) throws Exception {

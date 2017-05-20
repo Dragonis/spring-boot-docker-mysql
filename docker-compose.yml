@@ -1,0 +1,20 @@
+version: '2'
+services:
+ mysql:  
+  image: mysql:5.6
+  container_name: demo-mysql
+  ports:
+   - "3306"
+  environment:
+   - MYSQL_ROOT_PASSWORD=password
+   - MYSQL_DATABASE=demo
+   - MYSQL_USER=demo_user
+   - MYSQL_PASSWORD=demo_pass
+ demo-app: 
+   build: .
+   image: jiwhiz/spring-boot-docker-mysql
+   container_name: demo-app
+   links:
+      - mysql
+   ports: 
+   - "8080:8080"
